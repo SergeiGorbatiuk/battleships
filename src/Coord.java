@@ -8,6 +8,11 @@ public class Coord {
     }
 
     @Override
+    public String toString() {
+        return "("+x+", "+y+")";
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (o instanceof Coord){
             return (this.x == ((Coord) o).x) && (this.y == ((Coord) o).y);

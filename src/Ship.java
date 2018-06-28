@@ -1,18 +1,16 @@
-import jdk.internal.util.xml.impl.Pair;
-
 import java.util.ArrayList;
 
 public class Ship {
 
     public int lives;
     public int length;
-    public ArrayList<Coord> cells;
+    public ArrayList<Coord> cells = new ArrayList<>();
     public boolean[] shots;
 
     public Ship(int x1, int y1, int x2, int y2){
 
-        length = lives = Math.abs(x1 - x2) + Math.abs(y1 - y2);
-        shots = new boolean[lives];
+        length = lives = Math.abs(x1 - x2) + Math.abs(y1 - y2) + 1;
+        shots = new boolean[length];
         for (int i=0; i<lives; i++){
             shots[i] = false;
         }
@@ -35,6 +33,7 @@ public class Ship {
             if (sh.equals(cells.get(i))){
                 lives -= 1;
                 shots[i] = true;
+                return true;
             }
         }
         return false;
